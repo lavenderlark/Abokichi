@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Placed - Abokichi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span>USD ▼</span>
+      <span>📍 Stores</span>
+    </div>
+    <div class="top-bar-right">
+      <span>Login / Register</span>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-icon">⚙️</span>
+          <span class="logo-text">ABOKICHI</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <a href="products.html" class="nav-link">Shop ▼</a>
+        <a href="#" class="nav-link">Our story</a>
+        <a href="#" class="nav-link">Recipes</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn">🔍</button>
+        <button class="icon-btn">❤️</button>
+        <button class="icon-btn cart-btn" id="cartBtn">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-btn" id="closeCart">&times;</button>
+      </div>
+      <div class="cart-body" id="cartBody"></div>
+      <div class="cart-footer">
+        <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
+        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div class="order-success">
+    <div class="success-icon">✓</div>
+    <h1>Order Placed Successfully!</h1>
+    <p>Thank you for shopping with Abokichi</p>
+    <p class="success-note">Your order will be delivered soon</p>
+    <div class="success-buttons">
+      <button class="btn btn-primary" onclick="window.location.href='products.html'">Continue Shopping</button>
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>LINKS</h4>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>INFORMATION</h4>
+          <ul>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Refund policy</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-payment">
+        <span>💳 VISA</span>
+        <span>💳 Mastercard</span>
+        <span>💳 Apple Pay</span>
+        <span>💳 Amex</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="social">
+        <a href="#">f</a>
+        <a href="#">t</a>
+        <a href="#">i</a>
+        <a href="#">y</a>
+        <a href="#">p</a>
+        <a href="#">in</a>
+      </div>
+      <p>&copy; 2021 Abokichi.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    // Update cart badge on page load
+    updateCartBadge();
+    
+    // Cart modal functionality
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const closeCart = document.getElementById('closeCart');
+    
+    if (cartBtn) cartBtn.addEventListener('click', () => {
+      cartModal.classList.add('show');
+      renderOrderCart();
+    });
+    if (cartOverlay) cartOverlay.addEventListener('click', () => cartModal.classList.remove('show'));
+    if (closeCart) closeCart.addEventListener('click', () => cartModal.classList.remove('show'));
+    
+    // Render cart items in modal
+    function renderOrderCart() {
+      const cartBody = document.getElementById('cartBody');
+      const cart = getCart();
+      
+      if (cart.length === 0) {
+        cartBody.innerHTML = '<div class="cart-empty"><p>Your cart is empty</p></div>';
+      } else {
+        cartBody.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+              <div class="cart-item-qty">Qty: ${item.quantity}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+  </script>
+
+</body>
+</html>
