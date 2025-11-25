@@ -65,31 +65,31 @@ Abokichi/
 ## **Screenshots**
 
 * Home Page:
-* 
+
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/26acb9f8-efa7-4d52-8d5e-2dac1056fbde" />
 
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/6d20a332-dc52-4c07-b218-4e2a3da91171" />
 
 * Product Listing Page:
-* 
+ 
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/136a88ff-1062-4ba6-8fda-b91a0558ab91" />
 
 * Product Filters:
-* 
+  
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/dae33739-1fbd-4f26-8f42-179ad3317145" />
 
 * Product Details:
-* 
+  
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/656f1307-84a7-4b03-a7eb-6a4a3bd2f26a" />
 
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/41868cc1-c963-47e1-a5f1-3dd986adf6ca" />
 
 * Shopping Cart:
-* 
+  
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/2c6140f9-096e-4c9e-b144-402f0ff74325" />
 
 * Order Success Page:
-* 
+  
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/a6cba351-d378-497c-9789-a286bca6ca33" />
 
 ---
