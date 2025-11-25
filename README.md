@@ -4,7 +4,6 @@
 
 Abokichi is a responsive, multi-page e-commerce demo using pure HTML, CSS, and JavaScript. It features a clean green-accented design inspired by Japanese food branding.
 
----
 
 ## **Features**
 
@@ -19,7 +18,6 @@ Abokichi is a responsive, multi-page e-commerce demo using pure HTML, CSS, and J
 * Responsive layout (Flexbox & CSS Grid)
 * Runs on plain HTML, CSS, JavaScript—no frameworks
 
----
 
 ## **Structure**
 
@@ -41,7 +39,6 @@ Abokichi/
     └── detail.js
 ```
 
----
 
 ## **Usage**
 
@@ -52,7 +49,6 @@ Abokichi/
 * Placing an order via Buy Now or Checkout shows the order success page.
 * No installation or dependencies—everything runs in the browser.
 
----
 
 ## **Technologies**
 
@@ -60,7 +56,6 @@ Abokichi/
 * CSS3 (Flexbox & CSS Grid)
 * JavaScript (arrays and DOM manipulation)
 
----
 
 ## **Screenshots**
 
@@ -92,7 +87,6 @@ Abokichi/
   
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/a6cba351-d378-497c-9789-a286bca6ca33" />
 
----
 
 ## **Credits**
 
