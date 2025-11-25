@@ -1,183 +1,111 @@
 // js/detail.js
-// Product details page functionality
+// Product detail page logic
 
-// Variable to store current product
 let currentProduct = null;
 
-// Wait for page to load
 document.addEventListener('DOMContentLoaded', function() {
-  
-  // Update cart badge
-  updateCartBadge();
-  
-  // Get product ID from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = parseInt(urlParams.get('id'));
-  
-  if (productId) {
-    loadProductDetails(productId);
-  } else {
-    // No product ID found
-    document.getElementById('productDetail').innerHTML = '<p>Product not found</p>';
-  }
-  
-  // Setup cart modal
-  setupCartModal();
-  
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+
+    if (productId) {
+        loadProduct(productId);
+    }
 });
 
-/**
- * Load and display product details
- * @param {number} productId - ID of product to display
- */
-function loadProductDetails(productId) {
-  // Find product in data
-  const product = products.find(p => p.id === productId);
-  
-  if (!product) {
-    document.getElementById('productDetail').innerHTML = '<p>Product not found</p>';
-    return;
-  }
-  
-  // Store current product
-  currentProduct = product;
-  
-  // Render breadcrumb navigation
-  const breadcrumb = document.getElementById('breadcrumb');
-  if (breadcrumb) {
-    breadcrumb.innerHTML = `
-      <a href="index.html">Home</a> > 
-      <a href="products.html">Products</a> > 
-      <a href="products.html?category=${encodeURIComponent(product.category)}">${product.category}</a> > 
-      ${product.name}
-    `;
-  }
-  
-  // Render product details
-  const detailContainer = document.getElementById('productDetail');
-  if (!detailContainer) return;
-  
-  detailContainer.innerHTML = `
-    <div class="detail-left">
-      <img src="${product.image}" alt="${product.name}" class="detail-image">
-    </div>
+function loadProduct(productId) {
+    const product = products.find(p => p.id === productId);
     
-    <div class="detail-right">
-      <h1>${product.name}</h1>
-      
-      <div class="detail-price">
-        $${product.price.toFixed(2)}
-        ${product.oldPrice ? `<span class="detail-old-price">$${product.oldPrice.toFixed(2)}</span>` : ''}
-      </div>
-      
-      <div class="detail-rating">
-        ${'⭐'.repeat(Math.floor(product.rating))}
-        <span class="product-reviews">${product.reviews} Reviews</span>
-      </div>
-      
-      <p class="detail-description">${product.description}</p>
-      
-      <div class="detail-actions">
-        <button class="btn btn-secondary" onclick="addToCartFromDetail()">ADD TO CART</button>
-        <button class="btn btn-primary" onclick="buyNow()">Buy Now</button>
-      </div>
-      
-      <a href="#" class="wishlist-link" style="display:inline-block;margin-top:15px;color:var(--primary);text-decoration:underline;">♡ Add to Wishlist</a>
-      
-      <div style="margin-top:25px;display:flex;gap:15px;align-items:center;">
-        <span style="font-weight:600;">SHARE:</span>
-        <a href="#" style="font-size:20px;" aria-label="Share on Facebook">📘</a>
-        <a href="#" style="font-size:20px;" aria-label="Share on Twitter">🐦</a>
-        <a href="#" style="font-size:20px;" aria-label="Share on Pinterest">📌</a>
-      </div>
-      
-      <div style="margin-top:30px;border-top:2px solid #e4e4e4;padding-top:20px;">
-        <h3 style="margin-bottom:15px;">Product Details</h3>
-        <p style="color:#555;line-height:1.7;">
-          <strong>Category:</strong> ${product.category}<br>
-          <strong>Rating:</strong> ${product.rating}/5 (${product.reviews} reviews)<br>
-          <strong>Availability:</strong> In Stock
-        </p>
-      </div>
-    </div>
-  `;
-}
-
-/**
- * Add current product to cart
- * Called from Add to Cart button
- */
-function addToCartFromDetail() {
-  if (currentProduct) {
-    addToCart(currentProduct.id);
-  }
-}
-
-/**
- * Buy now - add to cart and go to order page
- * Called from Buy Now button
- */
-function buyNow() {
-  if (currentProduct) {
-    addToCart(currentProduct.id);
-    window.location.href = 'order.html';
-  }
-}
-
-/**
- * Setup cart modal (same as other pages)
- */
-function setupCartModal() {
-  const cartBtn = document.getElementById('cartBtn');
-  const cartModal = document.getElementById('cartModal');
-  const cartOverlay = document.getElementById('cartOverlay');
-  const closeCart = document.getElementById('closeCart');
-  const clearCartBtn = document.getElementById('clearCartBtn');
-  const checkoutBtn = document.getElementById('checkoutBtn');
-  
-  if (cartBtn) {
-    cartBtn.addEventListener('click', function() {
-      cartModal.classList.add('show');
-      renderCart();
-    });
-  }
-  
-  if (cartOverlay) {
-    cartOverlay.addEventListener('click', function() {
-      cartModal.classList.remove('show');
-    });
-  }
-  
-  if (closeCart) {
-    closeCart.addEventListener('click', function() {
-      cartModal.classList.remove('show');
-    });
-  }
-  
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && cartModal.classList.contains('show')) {
-      cartModal.classList.remove('show');
-    }
-  });
-  
-  if (clearCartBtn) {
-    clearCartBtn.addEventListener('click', function() {
-      if (confirm('Are you sure you want to clear your cart?')) {
-        clearCart();
-        renderCart();
-      }
-    });
-  }
-  
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', function() {
-      const cart = getCart();
-      if (cart.length === 0) {
-        alert('Your cart is empty!');
+    if (!product) {
+        document.querySelector('.container').innerHTML = '<div class="no-results">Product not found</div>';
         return;
-      }
-      clearCart();
-      window.location.href = 'order.html';
-    });
-  }
+    }
+
+    currentProduct = product;
+
+    // Update breadcrumb
+    const breadcrumbName = document.getElementById('breadcrumbName');
+    if (breadcrumbName) breadcrumbName.textContent = product.name;
+
+    // Update image
+    const img = document.getElementById('detailImage');
+    if (img) {
+        img.src = product.image;
+        img.alt = product.name;
+    }
+
+    // Update name
+    const name = document.getElementById('detailName');
+    if (name) name.textContent = product.name;
+
+    // Update price
+    const price = document.getElementById('detailPrice');
+    if (price) price.textContent = `$${product.price.toFixed(2)}`;
+
+    // Update old price
+    const oldPrice = document.getElementById('detailOldPrice');
+    if (oldPrice) {
+        if (product.oldPrice) {
+            oldPrice.textContent = `$${product.oldPrice.toFixed(2)}`;
+            oldPrice.style.display = 'inline';
+        } else {
+            oldPrice.style.display = 'none';
+        }
+    }
+
+    // Update rating
+    const rating = document.getElementById('detailRating');
+    if (rating) {
+        rating.innerHTML = `
+            ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}
+            <span class="product-reviews">(${product.reviews} reviews)</span>
+        `;
+    }
+
+    // Update short description
+    const desc = document.getElementById('detailDescription');
+    if (desc) desc.textContent = product.description;
+
+    // Update product specs (Generic for all products)
+    const specs = document.getElementById('productSpecs');
+    if (specs) {
+        let output = `<div class="product-specs-table">`;
+        output += `<div><b>Category:</b> ${product.category}</div>`;
+        if (product.type) output += `<div><b>Type:</b> ${product.type}</div>`;
+        if (product.flavor) output += `<div><b>Flavor:</b> ${product.flavor}</div>`;
+        output += `<div><b>Storage:</b> Store in a cool, dry place. Refrigerate after opening.</div>`;
+        output += `<div><b>Country of Origin:</b> Japan</div>`;
+        output += `</div>`;
+        specs.innerHTML = output;
+    }
+
+    // Add to Cart button
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    if (addToCartBtn) {
+        addToCartBtn.onclick = () => {
+            cart.add(product.id);
+        };
+    }
+
+    // Buy Now button
+    const buyNowBtn = document.getElementById('buyNowBtn');
+    if (buyNowBtn) {
+        buyNowBtn.onclick = () => {
+            cart.remove(product.id);
+            showToast(`Order placed for ${product.name}!`);
+            setTimeout(() => {
+                location.href = 'order.html';
+            }, 800);
+        };
+    }
+}
+
+// Tab switching function
+function switchTab(tabName) {
+    // Remove active class from all tabs and content
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content
+    event.target.classList.add('active');
+    document.getElementById(`${tabName}-tab`).classList.add('active');
 }

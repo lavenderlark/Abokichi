@@ -1,160 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abokichi - Nourish Yourself with MISO Goodness</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abokichi - Premium Japanese Condiments</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <span>USD ▼</span>
-      <span>📍 Stores</span>
-    </div>
-    <div class="top-bar-right">
-      <span>Login / Register</span>
-    </div>
-  </div>
-
-  <!-- Main Header / Navbar -->
-  <header class="navbar">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-left">
-        <a href="index.html" class="logo">
-          <span class="logo-icon">⚙️</span>
-          <span class="logo-text">ABOKICHI</span>
-        </a>
-      </div>
-      
-      <!-- Navigation -->
-      <nav class="navbar-center">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="products.html" class="nav-link">Products</a>
-      </nav>
-      
-      <!-- Cart -->
-      <div class="navbar-right">
-        <button class="icon-btn search-btn" aria-label="Search">🔍</button>
-        <button class="icon-btn wishlist-btn" aria-label="Wishlist">❤️</button>
-        <button class="cart-btn" id="cartBtn" aria-label="Shopping cart">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-badge" id="cartBadge">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Cart Modal -->
-  <div class="cart-modal" id="cartModal" role="dialog" aria-labelledby="cart-title" aria-modal="true">
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-content">
-      <div class="cart-header">
-        <h2 id="cart-title">Your Cart</h2>
-        <button class="close-btn" id="closeCart" aria-label="Close cart">&times;</button>
-      </div>
-      <div class="cart-body" id="cartBody"></div>
-      <div class="cart-footer">
-        <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
-        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Nourish Yourself with<br>MISO Goodness</h1>
-      <button class="btn btn-hero" onclick="window.location.href='products.html'">Shop now</button>
-      <p class="hero-note">Free shipping within the US for orders of $54 or more</p>
-    </div>
-  </section>
-
-  <!-- Features Bar -->
-  <div class="features">
-    <span>✓ Vegan</span>
-    <span>✓ KETO-friendly</span>
-    <span>✓ Non-GMO</span>
-    <span>✓ Organic miso</span>
-    <span>✓ Gluten-Free</span>
-  </div>
-
-  <!-- Best Sellers / Category Grid -->
-  <section class="products-section">
-    <div class="container">
-      <div class="section-title">
-        <div class="title-icon">⚙️</div>
-        <h2>Best Sellers</h2>
-      </div>
-      <!-- Populated by main.js using renderCategories() -->
-      <div class="category-grid" id="categoryGrid"></div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <div class="newsletter-content">
-      <div class="newsletter-icon">✉️</div>
-      <div class="newsletter-text">
-        <h3>SUBSCRIBE NEWSLETTER</h3>
-        <p>get the latest on sales, new releases and more...</p>
-      </div>
-      <div class="newsletter-form">
-        <input type="email" placeholder="Enter your mail" aria-label="Email address">
-        <button class="btn btn-subscribe">SUBSCRIBE</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h4>LINKS</h4>
-          <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Customer Service</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Sitemap</a></li>
-          </ul>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>USD ▼</span>
+            <span>📍 Stores</span>
         </div>
-        <div class="footer-col">
-          <h4>INFORMATION</h4>
-          <ul>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Refund policy</a></li>
-            <li><a href="#">Press</a></li>
-          </ul>
+        <div class="top-bar-right">
+            <span>Login / Register</span>
         </div>
-      </div>
-      <div class="footer-payment">
-        <span>💳 VISA</span>
-        <span>💳 Mastercard</span>
-        <span>💳 Apple Pay</span>
-        <span>💳 Amex</span>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <div class="social">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Twitter">t</a>
-        <a href="#" aria-label="Instagram">i</a>
-        <a href="#" aria-label="YouTube">y</a>
-        <a href="#" aria-label="Pinterest">p</a>
-        <a href="#" aria-label="LinkedIn">in</a>
-      </div>
-      <p>&copy; 2021 Abokichi.</p>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍜</span>
+                <span class="logo-text">ABOKICHI</span>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="products.html" class="nav-link">Shop</a>
+                <a href="#" class="nav-link">Our story</a>
+                <a href="#" class="nav-link">Recipes</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">❤️</button>
+                <button id="cartBtn" class="cart-btn">
+                    🛒
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&h=700&fit=crop" alt="Japanese Food">
+        </div>
+        <div class="hero-content">
+            <h1>Nourish Yourself with<br><span class="green-text">MISO Goodness</span></h1>
+            <button class="btn-shop" onclick="location.href='products.html'">Shop now</button>
+            <p class="shipping-text">Free shipping within the US for orders of $54 or more</p>
+        </div>
+    </section>
+
+    <!-- Benefits Bar -->
+    <div class="benefits-bar">
+        <div class="benefit">Vegan</div>
+        <div class="benefit">KETO-friendly</div>
+        <div class="benefit">Non-GMO</div>
+        <div class="benefit">Organic miso</div>
+        <div class="benefit">Gluten-Free</div>
     </div>
-  </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
+    <!-- Story & Recipes Section -->
+    <section class="story-recipes">
+        <div class="story-recipes-grid">
+            <div class="feature-card" onclick="location.href='products.html'">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop" alt="Our story">
+                <h3>Our story</h3>
+            </div>
+            <div class="feature-card" onclick="location.href='products.html'">
+                <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=600&h=400&fit=crop" alt="Recipes">
+                <h3>Recipes</h3>
+            </div>
+        </div>
+    </section>
 
+    <!-- Best Sellers -->
+    <section class="best-sellers">
+        <div class="section-title">
+            <h2>Best Sellers</h2>
+        </div>
+        <div id="bestSellersGrid" class="products-grid"></div>
+    </section>
+
+    <!--  VIDEO BANNER SECTION -->
+    <section class="video-banner">
+        <div class="video-banner-wrapper">
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=1400&h=400&fit=crop" alt="A Cup a Day for a Probiotic Boost" class="video-banner-bg">
+            <div class="video-overlay"></div>
+            <div class="video-banner-content" onclick="location.href='products.html'">
+                <h2>A Cup a Day for a Probiotic Boost</h2>
+                <button class="play-button-large">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <div class="newsletter-icon">✉️</div>
+            <div class="newsletter-text">
+                <h3>SUBSCRIBE NEWSLETTER</h3>
+                <p>get the latest on sales, new releases and more...</p>
+            </div>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed successfully!');">
+                <input type="email" placeholder="Enter your mail" required>
+                <button type="submit">SUBSCRIBE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>LINKS</h4>
+                <a href="#">About us</a>
+                <a href="#">Contact us</a>
+                <a href="#">Customer Service</a>
+                <a href="#">FAQs</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="footer-section">
+                <h4>INFORMATION</h4>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund policy</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-section">
+                <h4>PAYMENT METHODS</h4>
+                <div class="payment-icons">
+                    <span>💳 VISA</span>
+                    <span>💳 Mastercard</span>
+                    <span>🍎 Apple Pay</span>
+                    <span>💳 Amex</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📷</a>
+                <a href="#">▶️</a>
+                <a href="#">📌</a>
+                <a href="#">🔗</a>
+            </div>
+            <p>© 2021 Abokichi.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart" class="close-btn">×</button>
+        </div>
+        <div class="cart-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-primary" onclick="location.href='order.html'">Checkout</button>
+            <button class="btn-secondary btn-clear" onclick="cart.clear()">Clear Cart</button>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

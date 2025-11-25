@@ -1,121 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Details - Abokichi</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Abokichi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <span>USD ▼</span>
-      <span>📍 Stores</span>
-    </div>
-    <div class="top-bar-right">
-      <span>Login / Register</span>
-    </div>
-  </div>
-
-  <!-- Main Header -->
-  <header class="header">
-    <div class="header-container">
-      <div class="logo">
-        <a href="index.html">
-          <span class="logo-icon">⚙️</span>
-          <span class="logo-text">ABOKICHI</span>
-        </a>
-      </div>
-      <nav class="nav">
-        <a href="products.html" class="nav-link">Shop ▼</a>
-        <a href="#" class="nav-link">Our story</a>
-        <a href="#" class="nav-link">Recipes</a>
-        <a href="#" class="nav-link">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button class="icon-btn">🔍</button>
-        <button class="icon-btn">❤️</button>
-        <button class="icon-btn cart-btn" id="cartBtn">
-          🛒
-          <span class="cart-badge" id="cartBadge">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Cart Modal -->
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-content">
-      <div class="cart-header">
-        <h2>Your Cart</h2>
-        <button class="close-btn" id="closeCart">&times;</button>
-      </div>
-      <div class="cart-body" id="cartBody"></div>
-      <div class="cart-footer">
-        <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
-        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Product Detail Container -->
-  <div class="container">
-    <!-- Breadcrumb -->
-    <div class="breadcrumb" id="breadcrumb"></div>
-    
-    <!-- Product Detail -->
-    <div class="product-detail" id="productDetail"></div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h4>LINKS</h4>
-          <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Customer Service</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Sitemap</a></li>
-          </ul>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>USD ▼</span>
+            <span>📍 Stores</span>
         </div>
-        <div class="footer-col">
-          <h4>INFORMATION</h4>
-          <ul>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Refund policy</a></li>
-            <li><a href="#">Press</a></li>
-          </ul>
+        <div class="top-bar-right">
+            <span>Login / Register</span>
         </div>
-      </div>
-      <div class="footer-payment">
-        <span>💳 VISA</span>
-        <span>💳 Mastercard</span>
-        <span>💳 Apple Pay</span>
-        <span>💳 Amex</span>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <div class="social">
-        <a href="#">f</a>
-        <a href="#">t</a>
-        <a href="#">i</a>
-        <a href="#">y</a>
-        <a href="#">p</a>
-        <a href="#">in</a>
-      </div>
-      <p>&copy; 2021 Abokichi.</p>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍜</span>
+                <span class="logo-text">ABOKICHI</span>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link">Shop</a>
+                <a href="#" class="nav-link">Our story</a>
+                <a href="#" class="nav-link">Recipes</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">❤️</button>
+                <button id="cartBtn" class="cart-btn">
+                    🛒
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span id="breadcrumbName">Product</span>
+        </div>
+
+        <div class="product-detail">
+            <div class="detail-left">
+                <img id="detailImage" class="detail-image" src="" alt="Product">
+            </div>
+            <div class="detail-right">
+                <h1 id="detailName"></h1>
+                <div class="detail-price">
+                    <span id="detailPrice"></span>
+                    <span id="detailOldPrice" class="detail-old-price"></span>
+                </div>
+                <div id="detailRating" class="detail-rating"></div>
+                <p id="detailDescription" class="detail-description"></p>
+                <div class="detail-actions">
+                    <button class="btn btn-secondary" id="addToCartBtn">Add to Cart</button>
+                    <button class="btn btn-primary" id="buyNowBtn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Information Tabs -->
+        <div class="product-tabs-section">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="switchTab('description')">DESCRIPTION</button>
+                <button class="tab-btn" onclick="switchTab('reviews')">REVIEWS</button>
+                <button class="tab-btn" onclick="switchTab('videos')">VIDEOS</button>
+                <button class="tab-btn" onclick="switchTab('comments')">COMMENTS</button>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Description Tab -->
+                <div id="description-tab" class="tab-content active">
+                    <div class="tab-inner">
+                        <div id="productSpecs"></div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews-tab" class="tab-content">
+                    <div class="tab-inner">
+                        <h3>Customer Reviews</h3>
+                        <p id="reviewsContent">No reviews yet. Be the first to review this product!</p>
+                    </div>
+                </div>
+
+                <!-- Videos Tab -->
+                <div id="videos-tab" class="tab-content">
+                    <div class="tab-inner">
+                        <h3>Product Videos</h3>
+                        <p>No videos available for this product.</p>
+                    </div>
+                </div>
+
+                <!-- Comments Tab -->
+                <div id="comments-tab" class="tab-content">
+                    <div class="tab-inner">
+                        <h3>Comments</h3>
+                        <p>No comments yet. Start the conversation!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>LINKS</h4>
+                <a href="#">About us</a>
+                <a href="#">Contact us</a>
+                <a href="#">Customer Service</a>
+                <a href="#">FAQs</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="footer-section">
+                <h4>INFORMATION</h4>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund policy</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-section">
+                <h4>PAYMENT METHODS</h4>
+                <div class="payment-icons">
+                    <span>💳 VISA</span>
+                    <span>💳 Mastercard</span>
+                    <span>🍎 Apple Pay</span>
+                    <span>💳 Amex</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📷</a>
+                <a href="#">▶️</a>
+                <a href="#">📌</a>
+                <a href="#">🔗</a>
+            </div>
+            <p>© 2021 Abokichi.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart" class="close-btn">×</button>
+        </div>
+        <div class="cart-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-primary" onclick="location.href='order.html'">Checkout</button>
+            <button class="btn-secondary btn-clear" onclick="cart.clear()">Clear Cart</button>
+        </div>
     </div>
-  </footer>
+    <div class="cart-overlay"></div>
 
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/detail.js"></script>
-
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/detail.js"></script>
 </body>
 </html>

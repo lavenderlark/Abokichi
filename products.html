@@ -1,208 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products - Abokichi</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Abokichi</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <span>USD ▼</span>
-      <span>📍 Stores</span>
-    </div>
-    <div class="top-bar-right">
-      <span>Login / Register</span>
-    </div>
-  </div>
-
-  <!-- Main Header / Navbar -->
-  <header class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-left">
-        <a href="index.html" class="logo">
-          <span class="logo-icon">⚙️</span>
-          <span class="logo-text">ABOKICHI</span>
-        </a>
-      </div>
-      <nav class="navbar-center">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="products.html" class="nav-link active">Products</a>
-      </nav>
-      <div class="navbar-right">
-        <button class="icon-btn search-btn" aria-label="Search">🔍</button>
-        <button class="icon-btn wishlist-btn" aria-label="Wishlist">❤️</button>
-        <button class="cart-btn" id="cartBtn" aria-label="Shopping cart">
-          <span class="cart-icon">🛒</span>
-          <span class="cart-badge" id="cartBadge">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Cart Modal -->
-  <div class="cart-modal" id="cartModal" role="dialog" aria-labelledby="cart-title" aria-modal="true">
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-content">
-      <div class="cart-header">
-        <h2 id="cart-title">Your Cart</h2>
-        <button class="close-btn" id="closeCart" aria-label="Close cart">&times;</button>
-      </div>
-      <div class="cart-body" id="cartBody"></div>
-      <div class="cart-footer">
-        <button class="btn btn-secondary" id="clearCartBtn">Clear Cart</button>
-        <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Page Banner -->
-  <div class="page-banner">
-    <h1 id="pageTitle">PRODUCTS</h1>
-  </div>
-
-  <!-- Main Content -->
-  <div class="container">
-    
-    <!-- Products Header with Controls -->
-    <div class="products-header">
-      <h2 id="productCount">Products (18)</h2>
-      <div class="products-controls">
-        <button class="filter-btn" id="filterToggleBtn" aria-label="Toggle filters">☰ Filter</button>
-        <div class="view-toggle">
-          <button class="view-btn active" aria-label="Grid view">⊞</button>
-          <button class="view-btn" aria-label="List view">☰</button>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>USD ▼</span>
+            <span>📍 Stores</span>
         </div>
-        <div class="sort-box">
-          <label for="sortBy">Sort By:</label>
-          <select id="sortBy" aria-label="Sort products">
-            <option value="default">Alphabetically, A-Z</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Rating: High to Low</option>
-            <option value="name">Name: A to Z</option>
-          </select>
+        <div class="top-bar-right">
+            <span>Login / Register</span>
         </div>
-      </div>
     </div>
 
-    <!-- Filter Panel (Collapsible) -->
-    <div class="filter-sidebar" id="filterPanel" role="complementary" aria-label="Product filters">
-      <div class="filter-section">
-        <h3>| Categories</h3>
-        <label class="filter-checkbox">
-          <input type="checkbox" data-category="Chili oil:Okazu" aria-label="Chili oil category">
-          <span>Chili oil:Okazu</span>
-        </label>
-        <label class="filter-checkbox">
-          <input type="checkbox" data-category="Miso Soup" aria-label="Miso Soup category">
-          <span>Miso Soup</span>
-        </label>
-        <label class="filter-checkbox">
-          <input type="checkbox" data-category="Instant Matcha" aria-label="Instant Matcha category">
-          <span>Instant Matcha</span>
-        </label>
-        <label class="filter-checkbox">
-          <input type="checkbox" data-category="Coffee" aria-label="Coffee category">
-          <span>Coffee</span>
-        </label>
-      </div>
-      
-      <div class="filter-section">
-        <h3>| Type</h3>
-        <label class="filter-checkbox">
-          <input type="checkbox" value="single" aria-label="Single pack">
-          <span>Single Pack</span>
-        </label>
-        <label class="filter-checkbox">
-          <input type="checkbox" value="multi" aria-label="Multi set">
-          <span>Multi Set</span>
-        </label>
-      </div>
-      
-      <div class="filter-section">
-        <h3>| Flavours</h3>
-        <label class="filter-checkbox">
-          <input type="checkbox" value="original" aria-label="Original flavor">
-          <span>Original</span>
-        </label>
-        <label class="filter-checkbox">
-          <input type="checkbox" value="spicy" aria-label="Spicy flavor">
-          <span>Spicy</span>
-        </label>
-      </div>
-      
-      <div class="filter-section">
-        <h3>| Rating</h3>
-        <select id="ratingFilter" class="filter-select" aria-label="Filter by rating">
-          <option value="">Any Rating</option>
-          <option value="4">4★ & above</option>
-          <option value="3">3★ & above</option>
-        </select>
-      </div>
-      
-      <button class="btn btn-primary btn-apply" id="applyFilterBtn">Apply Filters</button>
-    </div>
-
-    <!-- Product Grid (Populated by products.js) -->
-    <div class="products-wrapper">
-      <div class="product-grid" id="productGrid" role="list"></div>
-      <div class="no-results" id="noResults" style="display: none;" role="status">
-        <p>No products found matching your criteria</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-columns">
-        <div class="footer-col">
-          <h4>LINKS</h4>
-          <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Customer Service</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">Sitemap</a></li>
-          </ul>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍜</span>
+                <span class="logo-text">ABOKICHI</span>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link active">Shop</a>
+                <a href="#" class="nav-link">Our story</a>
+                <a href="#" class="nav-link">Recipes</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <button class="icon-btn">🔍</button>
+                <button class="icon-btn">❤️</button>
+                <button id="cartBtn" class="cart-btn">
+                    🛒
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>INFORMATION</h4>
-          <ul>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Refund policy</a></li>
-            <li><a href="#">Press</a></li>
-          </ul>
+    </nav>
+
+    <!-- Page Banner -->
+    <div class="page-banner">
+        <h1>PRODUCTS</h1>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Products Header -->
+        <div class="products-header">
+            <h2>Products <span id="productCount">(18)</span></h2>
+            <div class="products-controls">
+                <button class="filter-toggle" id="filterToggle">
+                    <span class="filter-icon">☰</span> Filter
+                </button>
+                <div class="sort-box">
+                    <label>Sort By:</label>
+                    <select id="sortSelect">
+                        <option value="name-asc">Alphabetically, A-Z</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating-desc">Rating: High to Low</option>
+                    </select>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="footer-payment">
-        <span>💳 VISA</span>
-        <span>💳 Mastercard</span>
-        <span>💳 Apple Pay</span>
-        <span>💳 Amex</span>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="social">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Twitter">t</a>
-        <a href="#" aria-label="Instagram">i</a>
-        <a href="#" aria-label="YouTube">y</a>
-        <a href="#" aria-label="Pinterest">p</a>
-        <a href="#" aria-label="LinkedIn">in</a>
-      </div>
-      <p>&copy; 2021 Abokichi.</p>
-    </div>
-  </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/products.js"></script>
+        <!-- Filters Panel -->
+        <div id="filterPanel" class="filter-panel">
+            <div class="filter-columns">
+                <div class="filter-group">
+                    <h3>| Categories</h3>
+                    <label><input type="checkbox" name="category" value="Chili oil:Okazu"> Chili oil:Okazu</label>
+                    <label><input type="checkbox" name="category" value="Miso Soup"> Miso Soup</label>
+                    <label><input type="checkbox" name="category" value="Instant Matcha"> Instant Matcha</label>
+                    <label><input type="checkbox" name="category" value="Coffee"> Coffee</label>
+                </div>
+                <div class="filter-group">
+                    <h3>| Type</h3>
+                    <label><input type="checkbox" name="type" value="Single Pack"> Single Pack</label>
+                    <label><input type="checkbox" name="type" value="Multi Set"> Multi Set</label>
+                </div>
+                <div class="filter-group">
+                    <h3>| Flavours</h3>
+                    <label><input type="checkbox" name="flavor" value="Original"> Original</label>
+                    <label><input type="checkbox" name="flavor" value="Spicy"> Spicy</label>
+                </div>
+                <div class="filter-group">
+                    <h3>| Rating</h3>
+                    <select id="ratingFilter">
+                        <option value="0">Any Rating</option>
+                        <option value="4">4★ & above</option>
+                        <option value="3">3★ & above</option>
+                    </select>
+                </div>
+            </div>
+            <button id="applyFilters" class="btn-apply-filters">Apply Filters</button>
+        </div>
 
+        <!-- Products Grid -->
+        <div id="productsGrid" class="products-grid"></div>
+        <div id="noResults" class="no-results" style="display:none;">No products found</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>LINKS</h4>
+                <a href="#">About us</a>
+                <a href="#">Contact us</a>
+                <a href="#">Customer Service</a>
+                <a href="#">FAQs</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="footer-section">
+                <h4>INFORMATION</h4>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund policy</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-section">
+                <h4>PAYMENT METHODS</h4>
+                <div class="payment-icons">
+                    <span>💳 VISA</span>
+                    <span>💳 Mastercard</span>
+                    <span>🍎 Apple Pay</span>
+                    <span>💳 Amex</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📷</a>
+                <a href="#">▶️</a>
+                <a href="#">📌</a>
+                <a href="#">🔗</a>
+            </div>
+            <p>© 2021 Abokichi.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCart" class="close-btn">×</button>
+        </div>
+        <div class="cart-body" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-primary" onclick="location.href='order.html'">Checkout</button>
+            <button class="btn-secondary btn-clear" onclick="cart.clear()">Clear Cart</button>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
 </body>
 </html>
